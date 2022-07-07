@@ -1,25 +1,42 @@
-import { legacy_createStore, combineReducers, applyMiddleware } from 'redux';
-import { composeWithDevTools } from '@redux-devtools/extension';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-
-import thunk from 'redux-thunk';
+import { errorRedirection, timestamp } from './middlewares';
 import * as reducers from './reducers/reducers';
 
 const api = {};
 
-const configureStore = (preloadedState, { history }) => {
-  const middlewares = [
-    routerMiddleware(history),
-    thunk.withExtraArgument({ api, history }),
-    logger,
-  ];
-  const store = legacy_createStore(
-    combineReducers({ ...reducers, router: connectRouter(history) }),
-    preloadedState,
-    composeWithDevTools(applyMiddleware(...middlewares))
-  );
-  return store;
-};
+const actionsHistory =
+  (historyLength) => (createStore) => (reducer, initialState, enhancer) => {
+    const actionsHistoryReducer = ({ history, ...prevState }, action) => {
+      const nextState = reducer(prevState, action);
+      return {
+        ...nextState,
+        history: (history || [])
+          .concat({ prevState, action, nextState })
+          .slice(-historyLength),
+      };
+    };
+    return createStore(actionsHistoryReducer, initialState, enhancer);
+  };
 
-export default configureStore;
+export default function customConfigureStore(preloadedState, { history }) {
+  const store = configureStore({
+    preloadedState,
+    reducer: { ...reducers },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: { api, history },
+        },
+      }).concat(
+        errorRedirection(history, {
+          401: '/login',
+          404: '/404',
+        }),
+        timestamp,
+        logger
+      ),
+    enhancers: [actionsHistory(10)],
+  });
+  return store;
+}

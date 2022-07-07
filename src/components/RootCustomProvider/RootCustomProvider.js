@@ -1,7 +1,8 @@
 import { Provider } from 'react-redux';
-import { ConnectedRouter as Router } from 'connected-react-router';
+import { unstable_HistoryRouter as Router } from 'react-router-dom';
+// import { ConnectedRouter as Router } from 'connected-react-router';
 
-const Root = ({ children, store, history }) => {
+const ReduxRoot = ({ children, store, history }) => {
   return (
     <Provider store={store}>
       <Router history={history}>{children}</Router>
@@ -9,4 +10,4 @@ const Root = ({ children, store, history }) => {
   );
 };
 
-export default Root;
+export default ReduxRoot;
