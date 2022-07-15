@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './HomePage.scss';
-import HomeLogIn from '../Auth/LogIn/HomeLogIn';
-import GeneralLayout from '../GeneralLayout/GeneralLayout';
+import HomeLogIn from '../../Auth/LogIn/HomeLogIn';
+import GeneralLayout from '../../GeneralLayout/GeneralLayout';
 
 function HomePage() {
   return (
