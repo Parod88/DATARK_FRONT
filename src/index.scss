@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@function toRem($value) {
+    $remValue: ($value / 16)+rem;
+    @return $remValue;
+}
+
+:root {
+    /* colors */
+
+--bg-primary: #ead498;
+
+--txcolor-primary: #000000;
+--txcolor-secondary: #ffffff;
+
+    /* text */
+
+--text-thin:100;
+--text-normal: 400;
+--text-medium: 500;
+--text-bold: 700;
+
+--font-primary: 'Roboto', 'sans-serif';
+--font-secondary: 'Oswald', 'sans-serif';
+
+--text-size-1: toRem(24);
+--text-size-2: toRem(16);
+--text-size-3: toRem(13);
+
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+ /* fonts */
+ font-family: 'Roboto', 'Oswald', sans-serif;
+ font-weight: 400;
+ color: var(--txcolor-primary)
+}
+
+body {
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    
+        /*Disabled select elements*/
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edg*/
+}
+
+.container {
+    max-width: 1290px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}

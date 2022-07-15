@@ -1,0 +1,36 @@
+@function toRem($value) {
+    $remValue: ($value / 16)+rem;
+    @return $remValue;
+}
+
+.homepage{
+    width: toRem(600);
+    height: toRem(621);
+    margin:0 auto;
+    text-align: center;    
+    padding-top: 20vh;
+}
+
+
+#home-title {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: toRem(79);
+    font-weight:var(--text-thin);
+}
+
+#home-title2{
+    font-family: var(--font-primary);
+    font-size: toRem(79);
+    font-weight: var(--text-bold);
+    letter-spacing: toRem(10);   
+}
+
+#home-subtitle{
+    margin-top: 2rem;
+    font-family: var(--font-primary);
+    font-weight: var(--text-medium);
+    font-size: var(--text-size-1);
+    letter-spacing: toRem(3);
+    padding: 0 7rem;
+}
