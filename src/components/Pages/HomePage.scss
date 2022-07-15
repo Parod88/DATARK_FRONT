@@ -17,6 +17,8 @@
     font-family: var(--font-primary);
     font-size: toRem(79);
     font-weight:var(--text-thin);
+    word-spacing: toRem(40);
+    line-height: toRem(0);
 }
 
 #home-title2{
@@ -28,6 +30,7 @@
 
 #home-subtitle{
     margin-top: 2rem;
+    line-height: toRem(25);
     font-family: var(--font-primary);
     font-weight: var(--text-medium);
     font-size: var(--text-size-1);
