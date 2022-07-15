@@ -19,7 +19,14 @@
 --text-thin:100;
 --text-normal: 400;
 --text-medium: 500;
---text-bold: 700
+--text-bold: 700;
+
+--font-primary: 'Roboto', 'sans-serif';
+--font-secondary: 'Oswald', 'sans-serif';
+
+--text-size-1: toRem(24);
+--text-size-2: toRem(16);
+--text-size-3: toRem(13);
 
 }
 
