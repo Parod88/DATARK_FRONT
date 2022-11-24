@@ -1,7 +1,13 @@
+import MainButton from '../../Buttons/MainButton';
+import TextInput from '../../Inputs/TextInput/TextInput';
+import './HomeLogIn.scss';
+
 function LogIn() {
   return (
     <div id="homepage-login">
-      <h3>Aquí va el componente de login</h3>
+      <TextInput placeholder="Enter your e-mail" type="email" />
+      <MainButton primary> INICIAR SESIÓN</MainButton>
+      <MainButton primary2> REGÍSTRATE</MainButton>
     </div>
   );
 }
