@@ -1,0 +1,71 @@
+@function toRem($value) {
+    $remValue: ($value / 16)+rem;
+    @return $remValue;
+}
+
+.homepage{
+    width: toRem(600);
+    height: toRem(621);
+    margin:0 auto;
+    text-align: center;   
+    align-content: center;
+    padding-top: 20vh;
+}
+
+
+#home-title {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: toRem(79);
+    font-weight:var(--text-thin);
+    word-spacing: toRem(40);
+    line-height: toRem(0);
+}
+
+#home-title2{
+    font-family: var(--font-primary);
+    font-size: toRem(79);
+    font-weight: var(--text-bold);
+    letter-spacing: toRem(10);   
+}
+
+#home-subtitle{
+    margin-top: 2rem;
+    line-height: toRem(35);
+    font-family: var(--font-primary);
+    font-weight: var(--text-medium);
+    font-size: var(--text-size-1);
+    letter-spacing: toRem(3);
+    padding: 0 1rem;
+}
+
+#social-links{
+    margin: 0 auto;
+    width: 250px;
+    height: 50px;
+    margin-top: 0.75rem;
+    padding-top: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    border: 2px solid black;
+}
+
+#social-links-title{
+    margin-top: 1px;
+    margin-left: -3px;
+    font-family: var(--font-secondary);
+    font-size: var(--text-size-3);
+    font-weight: var(--text-bold);
+}
+
+#social-font{
+    span{
+    margin-right: 7px;
+    font-family: var(--font-icons);
+    font-size: toRem(35);
+    }
+    :last-child{
+        margin-right: -2px;
+    }
+}
